@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+        }
+        #maket{
+            width: 1000px;
+            margin: auto;
+            box-shadow: 0px 5px 15px gray;
+        }
+       
+        header{
+            position: relative;
+        }
+        header img{
+            width: 300px;
+            height: auto;
+        }
+        
+        
+        
+         /*три колонки*/
+        #left{
+            float: left;
+            width: 180px;
+            position: relative;
+            left: 800px;
+        }
+        #right{
+            float: right;
+            width: 180px;
+            position: relative;
+            left: 800px;
+        }
+        #center{
+            margin: 0px 200px 0px 200px;
+            position: relative;
+            left: 800px;
+        }
+        
+        #left, #right, #center{
+            padding: 20px 10px 10px 10px;
+        }
+        
+        
+        #container1 p{
+            text-indent: 10px;
+            font-family: Georgia;
+            line-height: 20px;
+        }
+        
+        #container1 p img{
+            height: 60px;
+            width: 60px;
+            position: relative;
+            left: -5px;
+            float: left;
+        }
+        
+        #container1 h3{
+            color: orange;
+            font-size: 30px;
+            font-family: sans-serif;
+            font-weight: 800;
+            padding-bottom: 20px;
+            line-height: 25px; 
+        }
+        
+        #container1 a{
+            text-decoration: none;
+            color: orange;
+        }
+        #container1 a:hover{
+            color: red;
+        }
+        
+        #container1{
+            position: relative;
+            width: 100%;
+            float: left;
+            background: #c69b62;
+            right: 600px;
+        }
+        #container2{
+           position: relative;
+            width:100%;
+            float: left;
+            background: #8997b3;
+            right: 200px;
+        }
+        #container3{
+           width:100%;
+           float: left;
+    
+            background: #e8e8e8;
+            overflow: hidden;
+            box-shadow: 0px 5px 15px gray;
+        }
+        
+        
+            
+        
+        
+        /*основная панель*/
+        ul.menu{
+            display: table;
+            width: 100%;
+            padding: 0px;
+            text-align: center;
+            border: 1px solid #000;
+            box-shadow: 2px 4px 3px black;
+        }
+        .menu li{
+            display: table-cell;
+        }
+        .menu li:after{
+            content: "";
+            position: absolute;
+            display: inline-block;
+            border-left: 1px dotted black;
+            height: 100%;
+            top: 0px;
+            right: 0px;
+        }
+        .menu li:last-child:after{
+            border-left: none;
+        } 
+        .menu a{
+            display: block;
+            text-decoration: none;
+            padding: 10px 0px;
+            font-family: Georgia;
+            font-weight: 600;
+            background-color: grey;
+            color: aliceblue;
+            transition-duration: 1s;
+            transition-property: background-color, color;
+            transition-timing-function: ease-out;
+        }
+        .menu a:hover{
+            background-color:white;
+            color:black;
+        }
+        
+        
+        
+        
+        
+        
+        
+        /*второй ярус панели меню*/
+        .menu li{
+            position: relative;
+            z-index: 99;
+        }
+        .menu li:hover ul{
+            display: block;
+            position: absolute;
+            top: 100%;
+            white-space: nowrap;
+        }
+        .menu li ul{
+            display: none;
+            padding-left: 0px; 
+        }
+        
+        .menu li ul li{
+            float: left;
+            width: 100%;
+            
+        }
+        .menu li ul li a{
+            border-bottom: 1px solid #000;
+            border-left: 1px solid #000;
+            border-right: 1px solid #000;
+            text-align: left;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+        .first{
+            border-top: 1px solid black;
+        }
+        
+        
+        
+        
+       
+        
+        
+        /*строка поиска*/
+        .input{
+            position: absolute;
+            right: 15px;
+            height: 20px;
+            top: 25px;
+            border: 1px solid grey;
+            padding: 0px 25px 0px 5px;
+        }
+        
+        .input:focus{
+            outline: 2px solid orange;
+            z-index: -2;
+        }
+        
+        /*оранжевая лупа - картинка*/
+        #lupa img{
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            right: 19px;
+            top: 28px;
+        }
+        
+        #stanok{
+            width: 100%;
+            height: 100%;
+            vertical-align: top;
+        }
+        
+        footer{
+            padding: 20px 0px;
+            text-align: center;
+            clear: both;
+            margin-top: 10px;
+            position: relative;
+            font-family:monospace;
+            font-size: 16px;
+            color: aliceblue;
+            background: linear-gradient(to top, gray, orange);
+            box-shadow: 0px 5px 15px gray;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="maket">
+        <header>
+           <a href="#">
+            <img src="header.png">
+            </a>
+            <input type="text" class="input" placeholder="Поиск">
+            <a href="#" id="lupa"><img src="knopka.png"></a>
+            </header>
+            <nav>
+            <ul class="menu">
+                <li><a href="#" class="button">О КОМПАНИИ</a>
+                    <ul>
+                        <li><a href="#" class="first">ИСТОРИЯ</a></li>
+                        <li><a href="#">ФИЛИАЛЫ</a>
+                            <ul>
+                                <li><a href="#">МОСКВА</a></li>
+                                <li><a href="#">НИЖНЕВАРТОВСК</a></li>
+                                <li><a href="#">ИРКУТСК</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">УСПЕШНЫЕ ПРОЕКТЫ</a></li>
+                        <li><a href="#">МИССИЯ КОМПАНИИ</a></li>
+                        <li><a href="#">ПРОИЗВОДСТВЕННАЯ БАЗА</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="button">БУРОВЫЕ УСТАНОВКИ</a>
+                    <ul>
+                        <li><a href="#" class="first">ZJ-15</a></li>
+                        <li><a href="#">ZJ-30</a></li>
+                        <li><a href="#">ZJ-40</a></li>
+                        <li><a href="#">ZJ-50</a></li>
+                        <li><a href="#">ZJ-70</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="button">КОМПЛЕКТУЮЩИЕ</a>
+                    <ul>
+                        <li><a href="#" class="first">ПОДШИПНИКИ</a></li>
+                        <li><a href="#">КОМПЛЕКТ УПЛОТНЕНИЙ</a></li>
+                        <li><a href="#">ВАЛ КАРДАННЫЙ</a></li>
+                        <li><a href="#">КЛАПАНЫ</a></li>
+                        <li><a href="#">ГИДРАВЛИЧЕСКИЕ КЛЮЧИ</a></li>
+                        <li><a href="#">СПАЙДЕРЫ</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="button">КАРЬЕРА</a>
+                    <ul>
+                        <li><a href="#" class="first">ОТКРЫТЫЕ ВАКАНСИИ</a></li>
+                        <li><a href="#">ОТПРАВИТЬ ЗАЯВКУ</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="button">КОНТАКТЫ</a></li>
+            </ul>
+            </nav>
+            
+            <img src="stanok.jpg" id="stanok">
+            
+   <div id="container3">
+       <div id="container2">
+           <div id="container1">
+    <div id="left">
+       <h3><a href="#">Запчасти и услуги</a></h3>
+        <p><a href="#"><img src="picture.png"></a>С 2007 годов Группа Хунхуа начала создавать систему сервисного обслуживания буровых установок в России.
+Отдел сервисного обслуживания координирует все работы, связанные с сервисным обслуживанием на территории Российской Федерации. Для обеспечения качества и оперативности предоставления услуг было создано 4 сервисных офиса располагающихся в Иркутске, Новом Уренгое, Оренбурге и Когалыме. Сотрудники сервисных офисов оказывают услуги по технической консультации, шеф-монтажу, наладке и пуску оборудования, аварийному ремонту и обучению персонала.
+
+    </div>
+    <div id="right">
+        <h3><a href="#">Новости компании</a></h3>
+        <p><a href="#"><img src="picture.png"></a>Компания ООО “ХунХуа – СНГ” в 2015 году выполнила контракт на поставку 5 приводов СВП DQ-450D для нужд компании ООО “Оренбургская буровая компания”. Также оказала полный перечень услуг в части монтажа, пуско-наладки, технического обслуживания оборудования в период гарантийного срока эксплуатации, обучения 2 бригад с целью безопасной эксплуатации на территории РФ данного оборудования.
+    </div>
+    <div id="center">
+        <h3><a href="#">Современные технологии и инновации</a></h3>
+        <p><a href="#"><img src="picture.png"></a>ООО «Хунхуа СНГ» было создано Сычуаньской компанией нефтяного оборудования Хунхуа, одной из ведущих российских лизиноговых компаний ОАО ВТБ Лизинг и ОАО Научно – производственной корпорацией «Уралвагонзавод».
+ООО «Хунхуа СНГ» - российская компания, работающая на территории Российской Федерации. Основным видом деятельности предприятия является производство бурового оборудования, поставки запасных частей и комплектующих, сервисное обслуживание.
+Производственные мощности компании располагаются в городе Ишимбай (республика Башкортостан).
+Компания имеет офисы в Москве, Нижнем Тагиле и Ишимбае.
+        К 1946 году компания открывает филиалы в Эквадоре, Колумбии, Перу, странах Среднего Востока. На Ближнем Востоке стала предоставлять услуги «Арабско-американской нефтяной компании», предшественнику Saudi Aramco. В 1951 году Халлибуртон открыл первый европейский филиал в Италии (Halliburton Italiana SpA.), затем — в Герма
+         году компания продала 5 цементировочных агрегатов британской компании в Бирме, начав таким образом международные операции. В это же время Эрл при помощи своих братьев открывает филиалы в Канаде, в провинции Альберта.
+        В 1930-х годах Халлибуртон основал исследовательские лаборатории, где инженеры-химики тестировали и смешивали виды цемента. Кроме того, началось обширное исследование кислот, применяемых при расщеплении подземных пластов и способствующих повышению нефте- и газотдачи пласта (ПНП). В 1930-х годах Халлибуртон основал исследовательские лаборатории, где инженеры-химики тестировали и смешивали виды цемента. Кроме того, началось обширное исследование кислот, применяемых при расщеплении подземных пластов и способствующих повышению нефте- и газотдачи пласта (ПНП).
+    </div>
+          </div>
+       </div>
+   </div>   
+   
+<footer>
+    Copywrite 2016
+</footer>
+  
+
+
+        
+    </div>
+</body>
+</html>
